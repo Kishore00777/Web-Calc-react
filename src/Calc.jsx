@@ -1,4 +1,4 @@
-import { Button, Card, Grid, TextField } from "@mui/material";
+import { Button, Card, Grid, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 
 export default function Calc() {
@@ -51,12 +51,12 @@ export default function Calc() {
       <Card
         sx={{
           maxWidth: 300,
-          mt: 10,
+          mt: 5,
           ml: 75,
           padding: 3,
           border: "5px solid #1976D2",
           borderRadius: 5,
-          boxShadow: "rgba(0, 0, 0, 0.3) 0.05px 0.05px 30px",
+          boxShadow: "rgba(0, 0, 0, 0.4) 0.05px 0.05px 30px",
         }}
       >
         <TextField label="Enter Number" value={input} sx={{ width: 275 }} />
