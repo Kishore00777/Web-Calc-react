@@ -64,7 +64,7 @@ export default function Calc() {
           {numbers.map((e, index) => (
             <Grid item xs={4} key={e}>
               <Button variant="contained" onClick={func[index]}>
-                {e}
+                {e} 
               </Button>
             </Grid>
           ))}
