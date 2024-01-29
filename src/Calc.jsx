@@ -20,7 +20,7 @@ export default function Calc() {
     ".",
     "=",
     "Clear",
-    "<"
+    "<",
   ];
   const [input, setInput] = useState("");
   const func = [
@@ -46,7 +46,7 @@ export default function Calc() {
       setInput("");
     },
     () => {
-      setInput((prevInput) => prevInput.slice(0,-1));
+      setInput((prevInput) => prevInput.slice(0, -1));
     },
   ];
   const handleClick = (e) => {
@@ -63,7 +63,13 @@ export default function Calc() {
           border: "5px solid #1976D2",
           borderRadius: 5,
           boxShadow: "rgba(0, 0, 0, 0.4) 0.05px 0.05px 30px",
-          display: { xs: "none", sm: "none" },
+          display: {
+            xs: "none",
+            sm: "none",
+            md: "block",
+            lg: "block",
+            xl: "block",
+          },
         }}
       >
         <TextField
@@ -92,7 +98,9 @@ export default function Calc() {
           border: "5px solid #1976D2",
           borderRadius: 5,
           boxShadow: "rgba(0, 0, 0, 0.4) 0.05px 0.05px 30px",
-          display: { lg: "none", xl: "none" },
+          display: { xs: "block", sm: "block",md: "none",
+            lg: "none",
+            xl: "none", },
         }}
       >
         <TextField
