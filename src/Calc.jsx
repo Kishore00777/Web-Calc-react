@@ -17,8 +17,10 @@ export default function Calc() {
     "-",
     "*",
     "/",
+    ".",
     "=",
     "Clear",
+    "<"
   ];
   const [input, setInput] = useState("");
   const func = [
@@ -36,11 +38,15 @@ export default function Calc() {
     () => handleClick("-"),
     () => handleClick("*"),
     () => handleClick("/"),
+    () => handleClick("."),
     () => {
       setInput(eval(input || ""));
     },
     () => {
       setInput("");
+    },
+    () => {
+      setInput((prevInput) => prevInput.slice(0,-1));
     },
   ];
   const handleClick = (e) => {
@@ -57,9 +63,44 @@ export default function Calc() {
           border: "5px solid #1976D2",
           borderRadius: 5,
           boxShadow: "rgba(0, 0, 0, 0.4) 0.05px 0.05px 30px",
+          display: { xs: "none", sm: "none" },
         }}
       >
-        <TextField label="Enter Number" value={input} sx={{ width: 275 }} />
+        <TextField
+          aria-readonly
+          label="Enter Number"
+          value={input}
+          sx={{ width: 275 }}
+        />
+        <Grid container spacing={2} sx={{ marginTop: 2 }}>
+          {numbers.map((e, index) => (
+            <Grid item xs={4} key={e}>
+              <Button variant="contained" onClick={func[index]}>
+                {e}
+              </Button>
+            </Grid>
+          ))}
+        </Grid>
+      </Card>
+      <Card
+        sx={{
+          maxWidth: 300,
+          mt: 10,
+          marginLeft: "auto",
+          marginRight: "auto",
+          padding: 3,
+          border: "5px solid #1976D2",
+          borderRadius: 5,
+          boxShadow: "rgba(0, 0, 0, 0.4) 0.05px 0.05px 30px",
+          display: { lg: "none", xl: "none" },
+        }}
+      >
+        <TextField
+          inputProps={{ inputMode: "none" }}
+          label="Enter Number"
+          value={input}
+          sx={{ width: 275 }}
+        />
         <Grid container spacing={2} sx={{ marginTop: 2 }}>
           {numbers.map((e, index) => (
             <Grid item xs={4} key={e}>
